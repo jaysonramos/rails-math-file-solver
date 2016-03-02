@@ -15,7 +15,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.updated_at %></td>
+        <td><%= user.updated_at.strftime('%D %R') %></td>
         <td><%= user.name %></td>
         <td><i>
         <% IO.foreach(user.math.path) do |line| %>
