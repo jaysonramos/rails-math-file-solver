@@ -1,0 +1,34 @@
+<table>
+<tr><td style="padding: .5em;">
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <b><%= f.label :"Submitted By" %></b><br>
+    <%= f.text_field :name %>
+  </div>
+  
+  <div class="field">
+    <b><%= f.label :"File" %></b><br>
+    <div class=''><%= @user.math_file_name %></div>
+  </div>
+  <div class="field">
+    <%= f.file_field :math, :class => 'btnExample' %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Submit File", :class => 'btnExample' %>
+  </div>
+<% end %>
+</tr></td>
+</table>
